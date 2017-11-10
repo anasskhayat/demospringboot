@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>los cursos</title>
+</head>
+<body>
+	<form action="#" th:action="@{/course /addcours}" method="post"
+		th:object="${course}">
+		<p>
+			name <input type="text" th:field="*{name}" />
+		</p>
+		<p>
+			description <input type="text" th:field="*{description}" />
+		</p>
+		<p>
+			price <input type="number" th:field="*{price}" />
+		</p>
+		<p>
+			hours <input type="number" th:field="*{hours}" />
+		</p>
+		<p>
+			<input type="submit" value="ENVIAR" />
+		</p>
+
+	</form>
+	<table>
+		<thead>
+			<tr>
+				<th>NAME</th>
+				<th>DESCRIPTION</th>
+				<th>PRICE</th>
+				<th>HOURS</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="course   : ${courses}">
+				<th><span th:text="${course.name}">NAME</span></th>
+				<th><span th:text="${course.description}">DESCRIPTION</span></th>
+				<th><span th:text="${course.price}">PRICE </span></th>
+				<th><span th:text="${course.hours}">HOURS</span></th>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
